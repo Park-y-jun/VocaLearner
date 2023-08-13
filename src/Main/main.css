@@ -1,0 +1,34 @@
+body {
+  position: relative;
+} 
+
+header {
+  border: 1px solid pink;
+}
+
+header .menu  {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-around;
+}
+
+header .menu a[data-menu] {
+  border: 1px solid black;
+}
+
+main {
+  border: 1px solid orange;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  
+}
+
+button {
+  display: block;
+  border: 1px solid green;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  
+}
