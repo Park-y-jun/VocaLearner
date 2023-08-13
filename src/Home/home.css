@@ -1,0 +1,20 @@
+.list {
+  border: 1px solid black;
+  width: 100%;
+  max-width: 1365px;
+  height: 750px;
+  margin: auto;
+  margin-top: 115px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 37%; 
+}
+
+ul .voca {
+  color: black;
+  text-decoration: none;
+}

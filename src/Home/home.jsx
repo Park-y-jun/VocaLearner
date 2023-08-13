@@ -1,8 +1,17 @@
-function Home() {
+import "./home.css"
+
+import { Link } from "react-router-dom";
+
+const Home = () => {
   return (
-    <div>
-      <h2>Home</h2>
-    </div>
+    <main className="list">
+      <ul>
+        <Link to="/vocabulary" className="voca">KR Voca</Link>
+        <Link to="/vocabulary" className="voca">KR Voca</Link>
+        <Link to="/vocabulary" className="voca">KR Voca</Link>
+        <Link to="/vocabulary" className="voca">KR Voca</Link>
+      </ul>
+    </main>
   );
 }
  

@@ -6,41 +6,21 @@ import About from "./List/list";
 import Dashboard from "./Main/main";
 import NoMatch   from "./VocaLearn/vocaLearn";
 
+import "./app.css"
+
 export default function App() {
   return (
     <div>
       <header>
-        <nav className="menu">
-          <a href="/" data-menu="two">
-            Home
-          </a>
-
-          <a href="/" data-menu="two">
-            Create VocaList
-          </a>
-
-          <a href="/" data-menu="three">
-            Daily Check
-          </a>
-
-        </nav>
-
-        <Link to="/about">about</Link>
+        <Link to="/"  className="header-list">Home</Link>
+        <Link to="/" className="header-list">Create VocaList</Link>
+        <Link to="/about" className="header-list">Daily Check</Link>
       </header>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      {/* <Routes>
-          <Route path="/" element={<Head />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="dashboard" element={<Dashboard />} />
-
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes> */}
     </div>
   );
 }
