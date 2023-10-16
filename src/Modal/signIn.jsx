@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import "./signIn.css";
 import axios from "axios";
 
-const Modal = ({ handleClose }) => {
+const Modal = ({ handleClose, handleData }) => {
   const [isRegister, setIsRegister] = useState(false);
   const [Id, setId] = useState("");
   const [Password, setPassword] = useState("");
@@ -14,38 +14,49 @@ const Modal = ({ handleClose }) => {
 
   const handleSwitch = () => {
     setIsRegister(!isRegister);
-    setId("")
+    setId("");
     setPassword("");
     setConfirmPassword("");
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isRegister && Password !== confirmPassword) {
-      alert("비밀번호 불일치!");
-      return;
-    }
-
-    const requestData = {
-      id: Id,
-      password: Password
-    }
     const api = import.meta.env.VITE_API_URL;
-   
+    const signInData = {
+      id: Id,
+      password: Password,
+    };
+
+    if (isRegister) {
+      if (Password !== confirmPassword) {
+        alert("비밀번호 불일치!");
+        return;
+      }
+
+      sendRequest(`${api}/user/sign-up`, signInData);
+    } else {
+      sendRequest(`${api}/user/sign-in`, signInData);
+    }
+  };
+
+  const sendRequest = (url, data) => {
     axios
-      .post(`${api}/user/sign-in`, requestData)
+      .post(url, data)
       .then((response) => {
-        console.log(requestData);
-        console.log(response.data);
-        handleClose();
+        
+        if (isRegister) {
+          setIsRegister(false)
+        } else {
+          handleData(response);
+          handleClose();
+        }
       })
       .catch((error) => {
-        console.log(requestData);
         console.log(error);
       });
-  }
-    
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -124,6 +135,7 @@ const Modal = ({ handleClose }) => {
 
 Modal.propTypes = {
   handleClose: PropTypes.func.isRequired,
+  handleData: PropTypes.func.isRequired,
 };
 
 export default Modal;
