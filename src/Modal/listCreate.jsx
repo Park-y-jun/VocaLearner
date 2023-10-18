@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import "./listCreate.css";
@@ -37,7 +37,7 @@ const ListCreate = ({ handleClose, userData, refreshLists }) => {
   };
 
   return (
-    <div className="frame">
+    <div className="frame-listCreate">
       <h2>단어장 이름</h2>
       <input
         type="text"
@@ -57,4 +57,4 @@ ListCreate.propTypes = {
   refreshLists: PropTypes.func.isRequired,
 };
 
-export default ListCreate
+export default ListCreate;

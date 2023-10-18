@@ -1,10 +1,11 @@
-import { Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Home from "./Home/home";
 import Modal from "./Modal/signIn";
 import ListCreate from './Modal/listCreate'
+import VocaLearn from "./VocaLearn/vocaLern";
 
 import "./app.css"
 
@@ -14,6 +15,8 @@ export default function App() {
  const [userData, setUserData] = useState(null);
  const [listData, setListData] = useState([]);
  const [error, setError] = useState(false);
+
+ const location = useLocation();
 
  useEffect(() => {
    setSignInModal(true);
@@ -98,20 +101,31 @@ const refreshLists = () => {
         />
       )}
 
-      <header>
-        <Link to="/" className="header-list">
-          Home
-        </Link>
-        <Link onClick={() => setListCreateModal(true)} className="header-list">
-          Create VocaList
-        </Link>
-        <Link to="/" className="header-list">
-          Daily Check
-        </Link>
-      </header>
+      {location.pathname !== "/VocaLearn" && (
+        <header>
+          <Link to="/" className="header-list">
+            Home
+          </Link>
+          <Link
+            onClick={() => setListCreateModal(true)}
+            className="header-list"
+          >
+            Create VocaList
+          </Link>
+          <Link to="/" className="header-list">
+            Log Out
+          </Link>
+        </header>
+      )}
 
       <Routes>
-        <Route path="/" element={<Home listName={listData} error={error} />} />
+        <Route
+          path="/"
+          element={
+            <Home listName={listData} error={error} userData={userData} />
+          }
+        />
+        <Route path="/VocaLearn" element={<VocaLearn />} />
       </Routes>
     </div>
   );
