@@ -25,16 +25,17 @@ const Home = ({ listName, error, userData}) => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = listName.slice(indexOfFirstItem, indexOfLastItem);
+  const userInfo = userData ? userData.data.data : null;
 
   return (
     <main className="list">
-      {questionCreateModal && (
-        <QuestionCreate
-          handleClose={closeQuestionCreateModal}
-          userData={userData}
-          itemKey={selectedItemKey}
-        />
-      )}
+      {questionCreateModal && userInfo &&(
+          <QuestionCreate
+            handleClose={closeQuestionCreateModal}
+            userData={userData}
+            itemKey={selectedItemKey}
+          />
+        )}
       {error ? (
         <>
           <h1>단어장을 추가 하세요</h1>
@@ -54,7 +55,18 @@ const Home = ({ listName, error, userData}) => {
                   >
                     단어 추가
                   </button>
-                  <button onClick={() => navigate('/VocaLearn')}>공부 시작</button>
+                  <button
+                    onClick={() => {
+                      navigate("/VocaLearn", {
+                        state: {
+                          itemKey: item.key,
+                          token: userInfo.accessToken,
+                        },
+                      });
+                    }}
+                  >
+                    공부 시작
+                  </button>
                 </>
               );
             })}
