@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const VocaLearn = () => {
   const location = useLocation();
   const { itemKey, token } = location.state;
-  
+
   const [wordList, setWordList] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+
+   const navigate = useNavigate();
 
   useEffect(() => {
     if (itemKey && token) {
@@ -75,7 +77,7 @@ const VocaLearn = () => {
           )}
         </div>
       )}
-      <button>홈으로</button>
+      <button onClick={() => navigate("/")}>홈으로</button>
     </div>
   );
 }

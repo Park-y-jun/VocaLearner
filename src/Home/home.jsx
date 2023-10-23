@@ -29,24 +29,25 @@ const Home = ({ listName, error, userData}) => {
 
   return (
     <main className="list">
-      {questionCreateModal && userInfo &&(
-          <QuestionCreate
-            handleClose={closeQuestionCreateModal}
-            userData={userData}
-            itemKey={selectedItemKey}
-          />
-        )}
+      {questionCreateModal && userInfo && (
+        <QuestionCreate
+          handleClose={closeQuestionCreateModal}
+          userData={userData}
+          itemKey={selectedItemKey}
+        />
+      )}
       {error ? (
-        <>
-          <h1>단어장을 추가 하세요</h1>
-        </>
+        <div className="noList">
+          <h1>&#x2191;</h1>
+          <br /> <p>단어장을 추가 하세요</p>
+        </div>
       ) : (
         <>
           <ul>
             {currentItems.map((item) => {
               return (
-                <>
-                  <li key={item.key}>{item.name}</li>
+                <div className="singleList" key={item.key}>
+                  <li>{item.name}</li>
                   <button
                     onClick={() => {
                       setQuestionCreateModal(true);
@@ -67,14 +68,14 @@ const Home = ({ listName, error, userData}) => {
                   >
                     공부 시작
                   </button>
-                </>
+                </div>
               );
             })}
           </ul>
         </>
       )}
       {listName.length > itemsPerPage && (
-        <>
+        <div className="goToBtn">
           <button onClick={goToPreviousPage} disabled={currentPage === 1}>
             이전
           </button>
@@ -84,7 +85,7 @@ const Home = ({ listName, error, userData}) => {
           >
             다음
           </button>
-        </>
+        </div>
       )}
     </main>
   );
