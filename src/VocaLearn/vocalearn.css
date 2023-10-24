@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Sawarabi+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nanum+Gothic&family=Sawarabi+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gothic+A1&family=Nanum+Gothic&family=Sawarabi+Gothic&display=swap');
+
+body {
+  background-color: rgb(255, 255, 240, 0.7);
+}
+
+.frame-VocaLearn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.VocaLearn-question {
+  position: fixed;
+  top: 13%;
+  left: 15%;
+  width: 70%;
+  height: 75%;
+  border: 1px solid rgba(180,170 ,140 ,0.5);
+  border-radius: 30px;
+  text-align: center;
+}
+
+.VocaLearn-question p {
+  font-size: 100px;
+  margin-top: 100px; 
+  font-family: 'Sawarabi Gothic', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.VocaLearn-question button {
+  margin: 90px 20px 0px 20px;
+  width: 150px;
+  height: 70px;
+  font-size: 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(220, 210, 180 ,0.5);
+  transition: background-color 0.3s ease;
+}
+
+.VocaLearn-question button:hover {
+  background-color: rgba(220, 210, 180 ,1)
+}
+
+.programEnd {
+  position: fixed;
+  top: 13%;
+  left: 15%;
+  width: 70%;
+  height: 75%;
+  border: 1px solid rgba(180,170 ,140 ,0.5);
+  border-radius: 30px;
+  text-align: center;
+}
+
+.programEnd .ending {
+  font-size: 120px;
+  margin-top: 120px;
+  font-family: 'Gamja Flower', sans-serif;
+}
+
+.programEnd .startPlz{
+  color: red;
+  font-size: 18px;
+  margin-top: 150px;
+}
+
+.gotoHome {
+  position: fixed;
+  bottom: 3%;
+  right: 47%;
+  width: 100px;
+  height: 55px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color :rgba(180,170 ,140 ,0.5);
+}

@@ -87,7 +87,12 @@ const refreshLists = () => {
       });
   }
 };
- 
+
+const logOut = () => {
+  setUserData(null);
+  setSignInModal(true);
+};
+
   return (
     <div>
       {signInModal && (
@@ -112,7 +117,7 @@ const refreshLists = () => {
           >
             Create VocaList
           </Link>
-          <Link to="/" className="header-list">
+          <Link onClick={logOut} className="header-list">
             Log Out
           </Link>
         </header>

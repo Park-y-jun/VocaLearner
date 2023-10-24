@@ -38,15 +38,18 @@ const ListCreate = ({ handleClose, userData, refreshLists }) => {
 
   return (
     <div className="frame-listCreate">
-      <h2>단어장 이름</h2>
+      <h2>단어장 이름:</h2>
       <input
         type="text"
         name="name"
         value={listName}
         onChange={(e) => setListName(e.target.value)}
+        placeholder="단어장 이름"
       />
-      <button onClick={createListReq}>생성</button>
-      <button onClick={handleClose}>취소</button>
+      <div className="listCreateBtn">
+        <button onClick={createListReq}>생성</button>
+        <button onClick={handleClose}>취소</button>
+      </div>
     </div>
   );
 };

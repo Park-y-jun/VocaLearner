@@ -8,7 +8,6 @@
   height: 750px;
   margin: auto;
   margin-top: 35px;
-  
 }
 
 .noList {
@@ -17,6 +16,22 @@
 
 .noList h1 {
   font-size: 120px;
+  animation-name: sparkle;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 0.3; 
+    transform: scale(1); 
+    filter:brightness(100%); 
+  } to {
+    opacity : 0.7; 
+    transform : scale (2); 
+    filter:brightness(150%);
+  }
 }
 
 .noList p {

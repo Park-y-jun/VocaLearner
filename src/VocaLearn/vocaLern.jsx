@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import './VocaLearn.css' 
+
 const VocaLearn = () => {
   const location = useLocation();
   const { itemKey, token } = location.state;
@@ -61,23 +63,35 @@ const VocaLearn = () => {
 
   return (
     <div className="frame-VocaLearn">
-      {wordList.length > currentIndex && (
-        <div>
-          <p onClick={() => setShowAnswer(!showAnswer)}>
-            {wordList[currentIndex].question}
-          </p>
+      {wordList.length > currentIndex ? (
+        <div
+          className="VocaLearn-question"
+          onClick={() => setShowAnswer(!showAnswer)}
+        >
+          <p>{wordList[currentIndex].question}</p>
 
           {showAnswer && (
-            <>
+            <div className="VocaLearn-answer">
               <p>{wordList[currentIndex].answer}</p>
-              <button onClick={() => nextQuestion("EASY")}>EASY</button>
-              <button onClick={() => nextQuestion("NORMAL")}>NORMAL</button>
-              <button onClick={() => nextQuestion("HARD")}>HARD</button>
-            </>
+              <button onClick={() => nextQuestion("EASY")}>
+                EASY
+              </button>
+              <button onClick={() => nextQuestion("NORMAL")}>
+                NORMAL
+              </button>
+              <button onClick={() => nextQuestion("HARD")}>
+                HARD
+              </button>
+            </div>
           )}
         </div>
+      ) : (
+        <div className="programEnd">
+          <p className="ending">오늘의 프로그램이 끝났습니다 내일봐요 ^^!</p><br/>
+          <p className="startPlz">⚠️해당 단어장에 단어를 추가한적이 없으시다면 추가해서 암기를 시작하세요</p>
+        </div>
       )}
-      <button onClick={() => navigate("/")}>홈으로</button>
+      <button className="gotoHome" onClick={() => navigate("/")}>홈으로</button>
     </div>
   );
 }
