@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import './VocaLearn.css' 
+import './vocaLearn.css' 
 
 const VocaLearn = () => {
   const location = useLocation();
