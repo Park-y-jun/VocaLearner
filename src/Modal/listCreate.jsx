@@ -26,8 +26,7 @@ const ListCreate = ({ handleClose, userData, refreshLists }) => {
 
     axios
       .post(`${api}/list`, createListData, config)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         handleClose();
         refreshLists();
       })

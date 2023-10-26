@@ -51,8 +51,7 @@ const VocaLearn = () => {
     const api = import.meta.env.VITE_API_URL;
     axios
       .patch(`${api}/word`, {difficulty}, config)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         setCurrentIndex((prevIndex) => prevIndex + 1);
         setShowAnswer(false);
       })

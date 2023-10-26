@@ -37,7 +37,6 @@ useEffect(() => {
     axios
       .get(`${api}/list/user_key/${userInfo.key}`, config)
       .then((response) => {
-       console.log(response);
        setListData(response.data.data);
        setError(false);
       })
@@ -77,7 +76,6 @@ const refreshLists = () => {
     axios
       .get(`${api}/list/user_key/${userInfo.key}`, config)
       .then((response) => {
-        console.log(response);
         setListData(response.data.data);
         setError(false);
       })
