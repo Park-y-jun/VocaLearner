@@ -1,4 +1,4 @@
-# VocaLearner BackEnd
+# VocaLearner
 
 ## VocaLearner 소개
 VocaLearner = Vocabulary + Learn + er <br>
